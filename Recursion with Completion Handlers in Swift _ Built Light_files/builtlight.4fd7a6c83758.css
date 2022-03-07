@@ -1,0 +1,524 @@
+/* 
+    background colors.
+    - home:     rgb(38, 38, 38)
+    - activity: rgb(246, 102, 72)
+    - process:  rgb(70, 186, 133)
+    - us:       rgb(0, 173, 238)
+    - work:     rgb(204, 173, 110)
+    
+    text colors:
+    - home:     rgb(150, 150, 150)
+    - activity: rgb(68, 18, 28)
+    - process:  rgb(30, 81, 59)
+    - us:       rgb(0, 58, 71)
+    - work:     rgb(40, 40, 40)    
+*/
+
+
+/* 
+    General 
+*/
+
+/* For browsers that don't recognize HTML5 tags. */
+article, aside, figure, figcaption, footer, header, main, nav, section, summary  {
+    display: block;
+}
+
+body {
+    display: grid;
+	grid-template-columns: 147px min-content;
+	grid-template-columns: 147px -webkit-min-content;
+    grid-column-gap: 12px;
+    grid-template-rows: 96px auto;
+    grid-template-areas:
+    "header nav"
+    "header main";
+	
+    margin: 0px;
+    padding: 15px;
+    min-width: 320px;
+}
+
+/* 
+	In some cases, Chrome failed to laod the JS file that controls the width of main.
+	The 'no-js-fallback' class lets us provide a reasonable width value in that case.
+	If the script does load and execute, it removes this tag.
+*/
+
+body.no-js-fallback #site-nav.no-portfolio ~ main {
+	max-width: 656px;
+}
+
+body.no-js-fallback #site-nav.portfolio ~ main {
+	max-width: 806px;
+}
+
+a {
+    /* Removes default link styling */
+    color: inherit;
+    text-decoration: none;
+}
+
+a, h1, h2, h3, h4, h5, h6, p, figure, figcaption, div {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+	grid-area: main;
+}
+
+ul {
+    padding: 0;
+    margin: 0px 0px 0px 20px;
+    list-style: none;
+}
+
+li {
+    padding: 0px 0px 0px 20px;
+}
+
+ul li:before, ol li:before {
+    content: '\2014\2004';
+    float: left;
+    margin: 0px 0px 0px -20px;
+}
+
+
+/* Fixes the bizarre default behavior of boxes in CSS. */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/*
+    Fonts
+*/
+
+/* Gives us consistent font weights on Firefox and Safari. */
+* {
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b, p, ul, time, figcaption {
+    font-family: "museo-slab", serif; 
+    font-style: normal;
+}
+
+h1, h2, h4, h5, h6, ul {
+    font-weight: 300;
+}
+
+b, strong {
+    font-weight: 900;
+}
+
+em, i {
+    font-family: "museo-slab", serif; 
+    font-style: italic;
+}
+
+.tagline, .headline {
+    font-size: 56px;    
+    padding: 15px 0px 33px 0px;
+    line-height: 1;
+}
+
+.rich-text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.43em;
+    margin: 0px 0px 14px 0px;
+}
+
+.rich-text p {
+    margin: 0px 0px 14px 0px;
+}
+
+/* 
+    Site Header 
+*/
+
+#site-header {
+    color: white;
+    grid-area: header;
+}
+
+#site-header a {
+    display: block;
+    font-family: "museo-sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 29px;
+}
+
+a.logo {    
+  background: url("../images/logo_white.dc0e8b11a33c.png") no-repeat;
+  height: 119px;
+  width: 147px;
+  margin: 0px 0px 13px 0px;
+}
+
+a.twitter:before {
+    content: " ";
+    background-image: url("../images/twitter.0fc34487382c.png");
+    width: 15px;
+    height: 13px;
+    margin-right: 5px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+
+/* 
+    Site Navigation 
+*/
+
+#site-nav {
+	max-width: calc(100vw - 189px);
+
+	grid-area: nav;
+	align-self: end;	
+	
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+	-webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+	-webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+
+	white-space: nowrap;
+ 	overflow-x: visible;
+
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+}
+
+#site-nav.portfolio {
+	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+	width: -moz-max-content;    /* Firefox/Gecko */
+	width: -webkit-max-content; /* Chrome */
+}
+
+#site-nav.no-portfolio {
+	width: 656px;
+}
+
+#site-nav a {
+	display: inline-block;
+	
+    font-size: 22px;
+    font-family: "museo-sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    text-transform: lowercase;
+    
+    transition: color 350ms ease-in-out;
+    -webkit-transition: color 350ms ease-in-out;
+}
+
+#site-nav .slash {
+    display: none;
+}
+
+#site-nav a:before {
+    content: url("../images/slash-single.6a1fc7d80591.png");
+    width: 14px;
+    margin: 0px 18px 0px 0px;
+    padding: 0px;
+}
+
+#site-nav a:after {
+    content: url("../images/slash-single.6a1fc7d80591.png");
+    width: 14px;
+    margin: 0px 2px 0px 18px;
+    padding: 0px;
+}
+
+#site-nav a:hover {
+    color: yellow;
+}
+
+/* We assume another 150px of width for the portfolio link. */
+@media (max-width: 994px) {
+	
+	#site-nav.portfolio {
+		width: calc(100vw - 189px);
+	}
+	
+	/* These equations help the spacing work reasonably well at max & min sizes. */
+	#site-nav.portfolio a {
+	    font-size: calc(10px + (100vw - 189px) * 0.015);
+	}
+
+	#site-nav.portfolio a:before {
+		margin-right: calc(-16px + (100vw - 189px) * 0.083 * 0.5); 
+	}
+
+	#site-nav.portfolio a:after {
+		margin-right: -4px;
+		margin-left: calc(-16px + (100vw - 189px) * 0.083 * 0.5);
+	}
+}
+
+
+/* Min width for our standard layout is 845px. */
+@media (max-width: 844px) {
+	
+	#site-nav.no-portfolio {
+		width: calc(100vw - 189px);
+	}
+
+	/* These equations help the spacing work reasonably well at max & min sizes. */
+	#site-nav.no-portfolio a {
+	    font-size: calc(14px + (100vw - 189px) * 0.0125);
+	}
+
+	aside#badge {
+	    display: none;
+	} 
+
+	#site-nav.no-portfolio a:before {
+		margin-right: calc(-14px + (100vw - 189px) * 0.083 * 0.62); 
+	}
+
+	#site-nav.no-portfolio a:after {
+		margin-right: -4px;
+		margin-left: calc(-14px + (100vw - 189px) * 0.083 * 0.62);
+	}
+}
+
+
+/* iPhone 7 in landscape is 667px wide. */
+/* This is the site's most compact mode. */
+@media (max-width: 666px) {
+
+	body {		
+	    grid-column-gap: 12px;
+	    grid-template-rows: auto auto;
+	    grid-template-areas:
+	    "header nav"
+	    "main main";
+	}
+	
+    #site-nav {
+    	align-self: stretch;	
+    	justify-self: end;
+
+        display: flex;
+	    display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        align-items: flex-end;
+        -webkit-align-items: flex-end;
+
+	    border-style: none;
+	    
+	    margin-top: -4px;
+	    padding-bottom: 5px;
+    }
+    
+    #site-nav a:before, #site-nav a:after {
+        display: none;
+    }
+    
+    #site-nav a {
+        font-size: 18px;
+        height: 22px;
+    }
+
+    #site-nav .slash {
+        display: block;
+    }
+    
+    main {
+	    width: calc(100vw - 30px);
+    }
+}
+
+
+/* 
+	Work and Portfolio Grid
+*/
+
+#page-preview-grid {
+	width: calc(100vw - 189px); /* Header col @ 147px + header margin @ 12px + padding @ 2 x 15px. */
+    display: grid;
+	grid-template-columns: repeat(auto-fit, 208px);
+    grid-auto-rows: 198px;
+    grid-gap: 16px;
+    margin-bottom: 15px;
+}
+
+.page-preview {
+	height: 100%; /* Explicit height needed for Safari. */
+    color: white;
+    background-color: rgb(40, 40, 40);
+    font-size: 14px;
+    
+    transition: color, background-color 200ms ease-in-out;
+    -webkit-transition: color, background-color 200ms ease-in-out;
+}
+
+.page-preview:hover {
+    background-color: yellow;
+    color: rgb(40, 40, 40);
+}
+
+.page-preview header {
+    height: 102px;
+    padding: 15px;
+}
+
+.page-preview .clipping {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-preview header h2 {
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.page-preview header h3 {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.page-preview img {
+    height: 96px;
+    width: 100%;
+    border-top: 1px solid rgb(204,173,110);
+    object-fit: cover;
+}
+
+@media (min-width: 1293px) {
+	#page-preview-grid {
+		width: 1104px; /* 5 cols @ 208px + 4 gaps @ 16px. */
+	}
+}
+
+@media (max-width: 666px) {	
+	#page-preview-grid {
+		width: 100%;
+	}
+}
+
+@media (max-width: 461px) {
+	#page-preview-grid {
+		grid-template-columns: auto;	
+	}
+}
+
+
+/*
+    Shared by Activity & Work posts.
+*/
+
+.a_head {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.b_head {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.c_head {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    
+    font-family: "museo-sans", sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+figure.single_image {
+    margin: 0px 0px 12px 0px;
+    padding: 0px;
+}
+
+figure.single_image img {
+    width: 100%;
+    height: auto;
+}
+
+figure.single_image figcaption {
+    font-family: "museo-sans-rounded", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+
+/*
+    Error
+*/
+
+body.error {
+    background-color: gray;
+    font-size: 24px;
+    line-height: 34px;
+    color: white;
+}
+
+/*
+    Swiper
+*/
+
+.swiper-container {
+    width: 100%;
+    margin: 0px 0px 14px 0px;
+    padding: 0px;
+}
+
+.swiper-slide>img { 
+    border: 1px solid rgb(146, 148, 151);
+}
+
+
+/*
+    Pygments
+*/
+
+.pygments pre {
+    font-family: "source-code-pro", monospace;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 10px;
+}

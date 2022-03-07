@@ -1,0 +1,112 @@
+
+body.activity a#activity {
+    color: rgb(68, 18, 28);
+}
+
+/* 
+    Activity Index
+*/
+
+body.activity  {
+    background-color: rgb(246,102,72);
+    color: rgb(68, 18, 28);
+}
+
+article.activity-preview {
+	width: 100%;
+	max-width: calc(100vw - 189px);
+    margin: 0px 0px 10px 0px;
+    background-color: white;
+    
+    transition: background-color 350ms ease-in-out;
+    -webkit-transition: background-color 350ms ease-in-out;
+}
+
+@media (max-width: 666px) {
+	
+	article.activity-preview {
+		max-width: calc(100vw - 30px);
+	}
+}
+
+article.banner {
+    height: 170px;
+}
+
+article.no-banner {
+    height: 85px;
+}
+
+.activity-preview header {
+	width: 100%;
+    height: 85px;
+    padding: 15px;
+}
+
+.activity-preview header h2 {
+
+	/* 	
+		Setting width is essential. 
+		Otherwise, full width of text drives entire grid column.
+		Chrome however, ignores this and lets the column grow anyway. 
+	*/
+	width: 100%;
+	
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.activity-preview:hover {
+    background-color: yellow;
+}
+
+.activity-preview img {
+    height: 84px;
+    width: 100%;
+    margin: 0px;
+    object-fit: cover;
+}
+
+.activity time {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(246,102,72);
+    margin: 3px 0px 5px 0px;
+}
+
+.activity-preview .rule {
+    width: 100%;
+    height: 1px;    
+    background-color: rgb(246,102,72);
+}
+
+/* 
+    Activity Post 
+*/
+
+.activity-post {
+    background-color: white;
+    color: rgb(68, 18, 28);
+    width: 100%;
+    padding: 15px;
+    margin: 23px 0px 0px 0px;
+}
+
+.activity-post h1 {
+    padding: 0px 0px 17px 0px;
+    border-bottom: 1px solid rgb(246,102,72);
+    margin: 0px 0px 34px 0px;
+    
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.activity-post .rich-text a {
+    color: rgb(246, 102, 72);
+    font-weight: 700;
+}
